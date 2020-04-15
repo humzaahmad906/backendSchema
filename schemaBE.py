@@ -44,7 +44,8 @@ async def hello(websocket, path):
                 backClicks = array[np.random.permutation(countb)[:2]]
                 print(foreClicks)
                 print(backClicks)
-
+                
+                #algo code will be added here
 
                 image = cv2.imread('img.jpg')
                 mask = np.zeros(image.shape[0:2])
