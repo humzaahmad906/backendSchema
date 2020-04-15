@@ -51,11 +51,13 @@ async def hello(websocket, path):
                 for i in range(image.shape[0]):
                     for j in range(image.shape[1]):
                         if image[i, j, 1] > 100:
-                            mask[i, j] = 1
+                            mask[i, j] = 255
+                _, frame = cv2.imencode('.JPEG', mask)
+                frame = str(base64.b64encode(frame))
                 mask.flatten()
                 mask = mask.tolist()
 
-                dit = {"array": mask}
+                dit = {"array": frame}
                 y = json.dumps({"event": "IMAGE SENT",
                                 "data": {
                                     "img": dit
