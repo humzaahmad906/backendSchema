@@ -54,8 +54,9 @@ async def hello(websocket, path):
                             mask[i, j] = 255
                 _, frame = cv2.imencode('.JPEG', mask)
                 frame = str(base64.b64encode(frame))
-                mask.flatten()
-                mask = mask.tolist()
+                # mask.flatten()
+                # mask = mask.tolist()
+                #uncomment the above code and send the data in form of array
 
                 dit = {"array": frame}
                 y = json.dumps({"event": "IMAGE SENT",
