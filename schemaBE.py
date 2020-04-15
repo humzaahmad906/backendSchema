@@ -46,13 +46,14 @@ async def hello(websocket, path):
                 print(backClicks)
                 
                 #algo code will be added here
-
+                #dummy code start
                 image = cv2.imread('img.jpg')
                 mask = np.zeros(image.shape[0:2])
                 for i in range(image.shape[0]):
                     for j in range(image.shape[1]):
                         if image[i, j, 1] > 100:
                             mask[i, j] = 255
+                #dummy code end
                 _, frame = cv2.imencode('.JPEG', mask)
                 frame = str(base64.b64encode(frame))
                 # mask.flatten()
